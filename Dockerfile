@@ -1,7 +1,7 @@
 FROM debian:stable
 
 RUN dpkg --add-architecture i386 && \ 
-  cat 'deb http://deb.debian.org/debian stable non-free' >> /etc/apt/sources.list && \
+  echo 'deb http://deb.debian.org/debian stable non-free' >> /etc/apt/sources.list && \
   apt-get update && apt-get upgrade -y && \
   echo steam steam/question select "I AGREE" | debconf-set-selections && \
   echo steam steam/license note '' | debconf-set-selections && \
